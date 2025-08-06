@@ -1,18 +1,23 @@
 
 SOURCES := $(shell find * -name "*.java")
-CLASSPATH := src
+BIN_DIR=out
 MAIN_CLASS := es.fortytwo.avaj.simulator.Simulator
 
+run: all
+	java -cp $(BIN_DIR) $(MAIN_CLASS) scenario.txt
+
 all:
-	java -cp $(CLASSPATH) $(SOURCES) scenario.txt
+	mkdir -p $(BIN_DIR)
+	javac -d $(BIN_DIR) $(SOURCES)
+
 
 clean:
 	find * -name "*.class" -delete
-	rm -rf sources.txt
+	rm -rf $(BIN_DIR)
 
 subject:
 	find * -name "*.java" > sources.txt
 	javac @sources.txt
-	java es.fortytwo.avaj.simulator.Simulator scenario.txt
+	java -cp src es.fortytwo.avaj.simulator.Simulator scenario.txt
 
 .PHONY: all clean subject

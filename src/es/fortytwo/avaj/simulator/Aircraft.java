@@ -18,7 +18,7 @@ public class Aircraft extends Flyable {
     this.coordinates = p_coordinates;
   }
 
-  public boolean checkHeight() {
+  public void checkHeight() {
     final int height = this.coordinates.getHeight();
     if (height > 100)
       this.coordinates.setHeight(100);

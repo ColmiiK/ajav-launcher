@@ -22,7 +22,7 @@ public class AircraftFactory {
   }
 
   public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
-    Aircraft aircraft;
+    Aircraft aircraft = null;
     switch (p_type) {
       case "Helicopter":
         aircraft = new Helicopter(helicopterId, p_name, p_coordinates);
