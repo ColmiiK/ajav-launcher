@@ -58,6 +58,8 @@ Helicopter#H1(3): This is hot.
 Helicopter#H4(4): My rotor is going to freeze!
 ```
 
+- TYPE#NAME(UNIQUE_ID): SPECIFIC_MESSAGE
+
 ### Scenario file
 
 Here's an example of the scenario file:
