@@ -87,9 +87,9 @@ Each following line represents an aircraft with the following format:
 
 There are 4 types of weather:
 
+- SUN
 - RAIN
 - FOG
-- SUN
 - SNOW
 
 Each 3D point has a weather.
