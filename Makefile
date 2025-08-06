@@ -1,13 +1,10 @@
 
 SOURCES := $(shell find * -name "*.java")
-CLASSES := $(SOURCES:.java=.class)
+CLASSPATH := src
+MAIN_CLASS := es.fortytwo.avaj.simulator.Simulator
 
-all: $(CLASSES)
-	java es.fortytwo.avaj.simulator.Simulator scenario.txt
-
-%.class: %.java
-	@echo Compiling $<
-	javac $<
+all:
+	java -cp $(CLASSPATH) $(SOURCES) scenario.txt
 
 clean:
 	find * -name "*.class" -delete
