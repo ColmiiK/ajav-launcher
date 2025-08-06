@@ -13,9 +13,35 @@ public class Helicopter extends Aircraft {
   }
 
   public void updateConditions() {
-    // TODO:
-    // getProvider().getCurrentWeather();
-    // Update data according to type of Aircraft
+    final String weather = WeatherProvider.getProvider().getCurrentWeather(this.coordinates);
+    int currentLongitude, currentLatitude, currentHeight;
+    switch (weather) {
+      case "SUN":
+        currentLongitude = this.coordinates.getLongitude();
+        currentHeight = this.coordinates.getHeight();
+        this.coordinates.setLongitude(currentLongitude + 10);
+        this.coordinates.setHeight(currentHeight + 2);
+        System.out.format("%s: SUNNY", this.getLogInfo());
+        checkHeight();
+        break;
+      case "RAIN":
+        currentLongitude = this.coordinates.getLongitude();
+        this.coordinates.setLongitude(currentLongitude + 5);
+        System.out.format("%s: RAINY", this.getLogInfo());
+        break;
+      case "FOG":
+        currentLongitude = this.coordinates.getLongitude();
+        this.coordinates.setLongitude(currentLongitude + 1);
+        System.out.format("%s: FOGGY", this.getLogInfo());
+        break;
+      case "SNOW":
+        currentHeight = this.coordinates.getHeight();
+        this.coordinates.setHeight(currentHeight - 12);
+        System.out.format("%s: SNOWY", this.getLogInfo());
+        checkHeight();
+        break;
+      default:
+        break;
+    }
   }
-
 }

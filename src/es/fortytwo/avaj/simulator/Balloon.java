@@ -13,9 +13,37 @@ public class Balloon extends Aircraft {
   }
 
   public void updateConditions() {
-    // TODO:
-    // getProvider().getCurrentWeather();
-    // Update data according to type of Aircraft
+    final String weather = WeatherProvider.getProvider().getCurrentWeather(this.coordinates);
+    int currentLongitude, currentLatitude, currentHeight;
+    switch (weather) {
+      case "SUN":
+        currentLatitude = this.coordinates.getLatitude();
+        currentHeight = this.coordinates.getHeight();
+        this.coordinates.setLatitude(currentLatitude + 2);
+        this.coordinates.setHeight(currentHeight + 4);
+        System.out.format("%s: SUNNY", this.getLogInfo());
+        checkHeight();
+        break;
+      case "RAIN":
+        currentHeight = this.coordinates.getHeight();
+        this.coordinates.setHeight(currentHeight - 5);
+        System.out.format("%s: RAINY", this.getLogInfo());
+        checkHeight();
+        break;
+      case "FOG":
+        currentHeight = this.coordinates.getHeight();
+        this.coordinates.setHeight(currentHeight - 3);
+        System.out.format("%s: FOGGY", this.getLogInfo());
+        checkHeight();
+        break;
+      case "SNOW":
+        currentHeight = this.coordinates.getHeight();
+        this.coordinates.setHeight(currentHeight - 15);
+        System.out.format("%s: SNOWY", this.getLogInfo());
+        checkHeight();
+        break;
+      default:
+        break;
+    }
   }
-
 }

@@ -18,8 +18,22 @@ public class Aircraft extends Flyable {
     this.coordinates = p_coordinates;
   }
 
+  public boolean checkHeight() {
+    final int height = this.coordinates.getHeight();
+    if (height > 100)
+      this.coordinates.setHeight(100);
+    else if (height <= 0) {
+      System.out.format("%s landing.", this.getLogInfo());
+      weatherTower.unregister(this);
+    }
+  }
+
   // Must implement updateConditions() since
   // it's extending the abstract Flyable class
   public void updateConditions() {
+  }
+
+  public String getLogInfo() {
+    return this.getClass().getSimpleName() + "#" + this.name + "(" + this.id + ")";
   }
 }
