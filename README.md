@@ -9,7 +9,7 @@
 - Not allowed to use any external libraries, build tools or code generators
 - Not allowed to use the default package
 - Create your own relevant packages following the Java naming convention
-- Do not commin .class files
+- Do not commit .class files
 - Make sure you have both java and javac
 - Compile with the following command in the root of the project:
 
