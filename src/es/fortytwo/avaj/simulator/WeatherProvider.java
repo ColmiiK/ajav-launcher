@@ -26,9 +26,9 @@ public class WeatherProvider {
   public String getCurrentWeather(Coordinates p_coordinates) {
     final int startingHash = 17;
     int hash = startingHash;
-    hash *= HASH_SEED_X + p_coordinates.getLongitude();
-    hash *= HASH_SEED_Y + p_coordinates.getHeight();
-    hash *= HASH_SEED_Z + p_coordinates.getLatitude();
+    hash *= (HASH_SEED_X + p_coordinates.getLongitude());
+    hash *= (HASH_SEED_Y + p_coordinates.getHeight());
+    hash *= (HASH_SEED_Z + p_coordinates.getLatitude());
     int index = Math.floorMod(hash, weather.length);
     return weather[index];
   }

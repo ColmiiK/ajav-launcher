@@ -23,7 +23,7 @@ public class Aircraft extends Flyable {
     if (height > 100)
       this.coordinates.setHeight(100);
     else if (height <= 0) {
-      System.out.format("%s landing.", this.getLogInfo());
+      System.out.println(this.getLogInfo() + " landing.");
       weatherTower.unregister(this);
     }
   }

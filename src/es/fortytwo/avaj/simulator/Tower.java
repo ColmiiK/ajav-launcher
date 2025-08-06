@@ -14,21 +14,18 @@ public class Tower {
   private List<Flyable> observers = new ArrayList<>();
 
   public void register(Flyable p_flyable) {
-    final boolean result = observers.add(p_flyable);
-    // if (result == false)
-    // TODO: handle error
-    System.out.format("Tower says: %s registered to weather tower.", p_flyable.getLogInfo());
+    observers.add(p_flyable);
+    System.out.println("Tower says: " + p_flyable.getLogInfo() + " registered to weather tower.");
   }
 
   public void unregister(Flyable p_flyable) {
-    final boolean result = observers.remove(p_flyable);
-    // if (result == false)
-    // TODO: handle error
-    System.out.format("Tower says: %s unregistered from weather tower.", p_flyable.getLogInfo());
+    observers.remove(p_flyable);
+    System.out.println("Tower says: " + p_flyable.getLogInfo() + " unregistered from weather tower.");
   }
 
   protected void conditionChanged() {
-    for (Flyable observer : observers) {
+    List<Flyable> temp = new ArrayList<>(this.observers);
+    for (Flyable observer : temp) {
       observer.updateConditions();
     }
   }

@@ -21,7 +21,7 @@ public class AircraftFactory {
     return instance;
   }
 
-  public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+  public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws Exception {
     Aircraft aircraft = null;
     switch (p_type) {
       case "Helicopter":
@@ -32,14 +32,13 @@ public class AircraftFactory {
         aircraft = new JetPlane(jetPlaneId, p_name, p_coordinates);
         jetPlaneId++;
         break;
+      case "Baloon":
       case "Balloon":
         aircraft = new Balloon(balloonId, p_name, p_coordinates);
         balloonId++;
         break;
       default:
-        // TODO: Unrecognized aircraft, error handling
-
-        break;
+        throw new Exception("Unrecognized aircraft");
     }
     return aircraft;
   }
