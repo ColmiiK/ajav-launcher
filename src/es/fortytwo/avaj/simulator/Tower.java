@@ -13,14 +13,20 @@ public class Tower {
   private List<Flyable> observers;
 
   public void register(Flyable p_flyable) {
-    // TODO
+    final boolean result = observers.add(p_flyable);
+    // if (result == false)
+    // TODO: handle error
   }
 
   public void unregister(Flyable p_flyable) {
-    // TODO
+    final boolean result = observers.remove(p_flyable);
+    // if (result == false)
+    // TODO: handle error
   }
 
   protected void conditionChanged() {
-    // TODO
+    // TODO:
+    // Notify all Aircraft so they update their data
+    // run through observers calling their updateConditions()
   }
 }

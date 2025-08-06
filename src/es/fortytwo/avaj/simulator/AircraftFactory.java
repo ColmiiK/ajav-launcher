@@ -6,6 +6,10 @@ package es.fortytwo.avaj.simulator;
 // p_coordinates)
 // }
 public class AircraftFactory {
+  private int helicopterId = 1;
+  private int jetPlaneId = 1;
+  private int balloonId = 1;
+
   private static AircraftFactory instance = null;
 
   private AircraftFactory() {
@@ -18,6 +22,25 @@ public class AircraftFactory {
   }
 
   public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
-    // TODO: Creates new aircraft of a given type with given data
+    Aircraft aircraft;
+    switch (p_type) {
+      case "Helicopter":
+        aircraft = new Helicopter(helicopterId, p_name, p_coordinates);
+        helicopterId++;
+        break;
+      case "JetPlane":
+        aircraft = new JetPlane(jetPlaneId, p_name, p_coordinates);
+        jetPlaneId++;
+        break;
+      case "Balloon":
+        aircraft = new Balloon(balloonId, p_name, p_coordinates);
+        balloonId++;
+        break;
+      default:
+        // TODO: Unrecognized aircraft, error handling
+
+        break;
+    }
+    return aircraft;
   }
 }

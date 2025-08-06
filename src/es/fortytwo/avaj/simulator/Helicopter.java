@@ -13,7 +13,9 @@ public class Helicopter extends Aircraft {
   }
 
   public void updateConditions() {
-    // TODO
+    // TODO:
+    // getProvider().getCurrentWeather();
+    // Update data according to type of Aircraft
   }
 
 }

@@ -21,6 +21,7 @@ public class WeatherProvider {
   }
 
   public String getCurrentWeather(Coordinates p_coordinates) {
-    // TODO
+    // TODO:
+    // Generate the weather
   }
 }
