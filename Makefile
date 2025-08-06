@@ -13,6 +13,7 @@ all:
 
 clean:
 	find * -name "*.class" -delete
+	rm -rf sources.txt
 	rm -rf $(BIN_DIR)
 
 subject:
