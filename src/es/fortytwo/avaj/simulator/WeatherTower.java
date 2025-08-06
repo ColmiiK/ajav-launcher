@@ -7,9 +7,7 @@ package es.fortytwo.avaj.simulator;
 // }
 public class WeatherTower extends Tower {
   public String getWeather(Coordinates p_coordinates) {
-    // TODO:
-    // Call the WeatherProvider to get the weather
-    // getProvider().getCurrentWeather();
+    return WeatherProvider.getProvider().getCurrentWeather(p_coordinates);
   }
 
   public void changeWeather() {
